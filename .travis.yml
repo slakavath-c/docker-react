@@ -1,0 +1,7 @@
+SUDO: required
+SERVICES:
+ - docker
+before_install:
+ - docker build -t slakavath-c/docker-react -f Dockerfile.dev .
+script:
+ - docker run slakavath-c/docker-react npm run test -- --coverage
